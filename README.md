@@ -1,17 +1,60 @@
-# flutter_knp_mobile_app_v2
+# Flutter Kanpur
 
-A new Flutter project.
+Flutter Kanpur is a scalable community ecosystem platform built using Flutter.
 
-## Getting Started
+The platform is designed as a modular super app architecture that supports:
+- developer community engagement
+- events and workshops
+- contests and coding challenges
+- hackathons
+- contribution systems
+- leaderboards and badges
+- notifications
+- integrated blogging ecosystem
+- ticketing and payment systems
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+# Tech Stack
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Frontend
+- Flutter
+- Dart
+- Riverpod
+- go_router
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Backend
+- Supabase
+- PostgreSQL
+
+## Local Storage
+- Hive / Isar
+- flutter_secure_storage
+
+## Notifications
+- Firebase Cloud Messaging (FCM)
+
+## Architecture
+- Clean Architecture
+- Feature-First Architecture
+- Modular Ecosystem Architecture
+
+---
+
+# Environment Configuration
+
+This project uses:
+
+- Flutter Version Management (FVM)
+- flutter_dotenv
+- Supabase backend environment configuration
+
+---
+
+# Flutter & Dart Version
+
+This project is locked to:
+
+```plaintext
+Flutter 3.41.0
+Dart 3.11.0
