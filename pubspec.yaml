@@ -37,7 +37,6 @@ dependencies:
   flutter_secure_storage: ^10.2.0
   supabase_flutter: ^2.12.4
   flutter_dotenv: ^6.0.1
-  rename_app: ^1.6.6
   flutter_riverpod: ^3.3.1
 
 dev_dependencies:
