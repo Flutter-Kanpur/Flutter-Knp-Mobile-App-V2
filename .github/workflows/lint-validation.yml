@@ -2,7 +2,7 @@ name: Lint and Validation Checks
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
+    types: [opened, synchronize, reopened, ready_for_review, edited]
 
 jobs:
   lint-and-validation:
@@ -29,47 +29,62 @@ jobs:
           echo "Checking branch: $BRANCH_NAME"
 
           if [[ "$BRANCH_NAME" =~ ^feature/FKP-[0-9]+-[a-z0-9-]+$ ]]; then
-            echo "✅ Feature branch format is valid"
-            echo "branch_type=feature" >> $GITHUB_OUTPUT
-            echo "is_valid=true" >> $GITHUB_OUTPUT
+            echo "Feature branch format is valid"
+            echo "branch_type=feature" >> "$GITHUB_OUTPUT"
+            echo "is_valid=true" >> "$GITHUB_OUTPUT"
 
           elif [[ "$BRANCH_NAME" =~ ^bugfix/FKP-[0-9]+-[a-z0-9-]+$ ]]; then
-            echo "✅ Bugfix branch format is valid"
-            echo "branch_type=bugfix" >> $GITHUB_OUTPUT
-            echo "is_valid=true" >> $GITHUB_OUTPUT
+            echo "Bugfix branch format is valid"
+            echo "branch_type=bugfix" >> "$GITHUB_OUTPUT"
+            echo "is_valid=true" >> "$GITHUB_OUTPUT"
 
           elif [[ "$BRANCH_NAME" =~ ^hotfix/FKP-[0-9]+-[a-z0-9-]+$ ]]; then
-            echo "✅ Hotfix branch format is valid"
-            echo "branch_type=hotfix" >> $GITHUB_OUTPUT
-            echo "is_valid=true" >> $GITHUB_OUTPUT
+            echo "Hotfix branch format is valid"
+            echo "branch_type=hotfix" >> "$GITHUB_OUTPUT"
+            echo "is_valid=true" >> "$GITHUB_OUTPUT"
 
           elif [[ "$BRANCH_NAME" =~ ^chore/FKP-[0-9]+-[a-z0-9-]+$ ]]; then
-            echo "✅ Chore branch format is valid"
-            echo "branch_type=chore" >> $GITHUB_OUTPUT
-            echo "is_valid=true" >> $GITHUB_OUTPUT
+            echo "Chore branch format is valid"
+            echo "branch_type=chore" >> "$GITHUB_OUTPUT"
+            echo "is_valid=true" >> "$GITHUB_OUTPUT"
 
           elif [[ "$BRANCH_NAME" =~ ^release/v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            echo "✅ Release branch format is valid"
-            echo "branch_type=release" >> $GITHUB_OUTPUT
-            echo "is_valid=true" >> $GITHUB_OUTPUT
+            echo "Release branch format is valid"
+            echo "branch_type=release" >> "$GITHUB_OUTPUT"
+            echo "is_valid=true" >> "$GITHUB_OUTPUT"
 
           elif [[ "$BRANCH_NAME" == "main" ]] || [[ "$BRANCH_NAME" == "develop" ]]; then
-            echo "✅ Special branch - skipping naming validation"
-            echo "branch_type=special" >> $GITHUB_OUTPUT
-            echo "is_valid=true" >> $GITHUB_OUTPUT
+            echo "Special branch - skipping naming validation"
+            echo "branch_type=special" >> "$GITHUB_OUTPUT"
+            echo "is_valid=true" >> "$GITHUB_OUTPUT"
 
           else
-            echo "❌ Branch naming convention violation"
+            echo "Branch naming convention violation"
             echo "Branch '$BRANCH_NAME' does not follow the required format:"
             echo "  - feature/FKP-123-short-description"
             echo "  - bugfix/FKP-123-short-description"
             echo "  - hotfix/FKP-123-short-description"
             echo "  - chore/FKP-123-short-description"
             echo "  - release/v1.0.0"
-            echo "is_valid=false" >> $GITHUB_OUTPUT
+            echo "is_valid=false" >> "$GITHUB_OUTPUT"
             exit 1
           fi
 
-          - name: Validate PR title format
-          id: pr-title-validation
-          exit 1
+      - name: Validate PR title format
+        id: pr-title-validation
+        shell: bash
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          echo "Checking PR title: $PR_TITLE"
+
+          if [[ "$PR_TITLE" =~ ^FKP-[0-9]+[[:space:]]#comment[[:space:]].+ ]] || [[ "$PR_TITLE" =~ ^FKP-[0-9]+:[[:space:]].+ ]]; then
+            echo "PR title format is valid"
+            echo "is_valid=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "PR title format violation"
+            echo "Use: FKP-123 #comment short description"
+            echo "Example: FKP-16 #comment Add Supabase table connection schema"
+            echo "is_valid=false" >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
