@@ -1,0 +1,36 @@
+class DatabaseTables {
+  const DatabaseTables._();
+
+  static const users = 'users';
+  static const userSkills = 'user_skills';
+  static const admins = 'admins';
+  static const adminPermissions = 'admin_permissions';
+  static const events = 'events';
+  static const eventRegistrations = 'event_registrations';
+  static const tickets = 'tickets';
+  static const payments = 'payments';
+  static const projects = 'projects';
+  static const projectTechStack = 'project_tech_stack';
+  static const projectMembers = 'project_members';
+  static const blogs = 'blogs';
+  static const tags = 'tags';
+  static const tagMappings = 'tag_mappings';
+  static const featuredResources = 'featured_resources';
+  static const questions = 'questions';
+  static const answers = 'answers';
+  static const communityMemberships = 'community_memberships';
+  static const contests = 'contests';
+  static const contestProblems = 'contest_problems';
+  static const contestSubmissions = 'contest_submissions';
+  static const hackathons = 'hackathons';
+  static const hackathonTeams = 'hackathon_teams';
+  static const hackathonMembers = 'hackathon_members';
+  static const hackathonSubmissions = 'hackathon_submissions';
+  static const leaderboardSnapshots = 'leaderboard_snapshots';
+  static const leaderboardEntries = 'leaderboard_entries';
+  static const roleSuggestions = 'role_suggestions';
+  static const userDevices = 'user_devices';
+  static const notifications = 'notifications';
+  static const siteConfig = 'site_config';
+  static const auditLogs = 'audit_logs';
+}

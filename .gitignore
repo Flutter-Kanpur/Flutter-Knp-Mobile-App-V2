@@ -47,5 +47,8 @@ app.*.map.json
 # Environment variables
 .env
 
+# Local Supabase schema dump / manual SQL setup
+supabase/schema.sql
+
 # FVM Version Cache
 .fvm/

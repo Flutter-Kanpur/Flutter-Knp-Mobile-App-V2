@@ -1,24 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_knp_mobile_app_v2/app/environments/env.dart';
-import 'package:flutter_knp_mobile_app_v2/modules/auth/presentation/screens/screen1.dart';
+import 'package:flutter_knp_mobile_app_v2/core/database/presentation/supabase_health_screen.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-Future<void>  main() async{
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName:".env");
-  await Supabase.initialize(
-    url: Env.supabaseUrl,
-    anonKey:Env.supabaseAnonKey,
-  );
-  print("Supabase Initialized Successfully");
+  await dotenv.load(fileName: '.env');
+  await Supabase.initialize(url: Env.supabaseUrl, anonKey: Env.supabaseAnonKey);
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-
-
-
   const MyApp({super.key});
 
   @override
@@ -26,9 +19,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Kanpur App',
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+        useMaterial3: true,
       ),
-      home: const Screen1(),
+      home: const SupabaseHealthScreen(),
     );
   }
 }

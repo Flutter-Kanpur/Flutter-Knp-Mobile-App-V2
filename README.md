@@ -58,3 +58,13 @@ This project is locked to:
 ```plaintext
 Flutter 3.41.0
 Dart 3.11.0
+```
+
+---
+
+# Developer References
+
+- Architecture and feature ownership: `docs/flutter_kanpur_architecture.md`
+- Supabase setup/migration guide: `docs/supabase_setup.md`
+- Supabase schema SQL: `supabase/schema.sql`
+- App Supabase health check: `lib/core/database/services/supabase_database_service.dart`
