@@ -16,13 +16,8 @@
 - [ ] **Type Safety**: All variables properly typed, no implicit dynamic types
 
 #### 📱 **Flutter-Specific Checks**
-- [ ] **State Management**: Proper state management patterns used (BLoC for New Feature and GetX for existing feature)
+- [ ] **State Management**: Proper state management patterns used **Riverpod**.
 
 #### ✅ **Final Checks**
-- [ ] **Gemini Review**: Resolve Gemini reviewed critical and High Priprity issue
-- [ ] **Peer Review**: At least one team member has reviewed the code
-
-#### 🚨 **Production Readiness** (for production PRs)
-- [ ] **Feature Flags**: Feature flags update in QA Config Panel
-- [ ] **UAT Testing**: Before User Acceptance Testing update prod Config Panel
-- [ ] **Release Notes**: Release notes update before release
+- [ ] **L1 Review (Peer Review)**: At least one team member has reviewed the code
+- [ ] **L2 Review (Senior Review)**: At least one Senior member has reviewed the code.
