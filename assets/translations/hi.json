@@ -1,0 +1,123 @@
+{
+  "auth": {
+    "signInTitle": "आपका स्वागत है",
+    "signInSubTitle": "ऐसे समुदाय का हिस्सा बनें जो साथ में सीखता और निर्माण करता है।",
+
+    "signUpTitle": "अपना अकाउंट बनाएं",
+    "signUpSubTitle": "Flutter Kanpur से जुड़ें और समुदाय का हिस्सा बनें।",
+
+    "username": "यूज़रनेम",
+    "emailAddress": "ईमेल पता",
+    "emailOrUsername": "ईमेल पता/यूज़रनेम",
+
+    "password": "पासवर्ड",
+    "createPassword": "पासवर्ड बनाएं",
+    "confirmPassword": "पासवर्ड की पुष्टि करें",
+
+    "continueWithGoogle": "Google के साथ जारी रखें",
+    "signInWithEmail": "ईमेल से साइन इन करें",
+
+    "createAccount": "अकाउंट बनाएं",
+    "createAccountButton": "अकाउंट बनाएं",
+
+    "login": "लॉगिन",
+    "logIn": "लॉग इन करें",
+
+    "alreadyHaveAccount": "क्या आपके पास पहले से अकाउंट है?",
+    "dontHaveAccount": "यहाँ नए हैं?",
+
+    "loginNow": "लॉग इन करें",
+    "createAccountNow": "अकाउंट बनाएं",
+
+    "forgotPassword": "पासवर्ड भूल गए?",
+
+    "retry": "पुनः प्रयास करें",
+    "loading": "लोड हो रहा है...",
+
+    "emailVerifiedTitle": "ईमेल सत्यापित",
+    "emailVerifiedSubTitle": "आपका ईमेल पता सफलतापूर्वक सत्यापित हो गया है।",
+
+    "verificationFailedTitle": "असफल",
+    "verificationFailedSubTitle": "कुछ गलत हो गया। कृपया पुनः प्रयास करें।"
+  },
+
+  "intro": {
+    "screen1Title": "जानें क्या हो रहा है",
+    "screen1SubTitle": "Flutter Kanpur समुदाय में होने वाले मीटअप, वर्कशॉप और चुनौतियों से अपडेट रहें।",
+
+    "screen2Title": "साथ में सीखें और निर्माण करें",
+    "screen2SubTitle": "इवेंट्स में शामिल हों, टीम्स को एक्सप्लोर करें और वास्तविक चर्चाओं व हैंड्स-ऑन सेशन्स के माध्यम से सीखें।",
+
+    "screen3Title": "समुदाय का हिस्सा बनें",
+    "screen3SubTitle": "डेवलपर्स और डिज़ाइनर्स से जुड़ें, प्रोजेक्ट्स में योगदान दें और साथ में आगे बढ़ें।",
+
+    "skip": "स्किप करें",
+    "next": "आगे",
+    "getStarted": "शुरू करें"
+  },
+
+  "onboarding": {
+    "screen1Title": "आइए आपकी प्रोफ़ाइल सेट करें",
+    "screen1SubTitle": "बुनियादी जानकारी से शुरुआत करें।",
+
+    "screen2Title": "आपको सबसे बेहतर क्या दर्शाता है?",
+    "screen2SubTitle": "एक या अधिक चुनें।",
+
+    "screen3Title": "आपकी स्किल्स और अनुभव",
+    "screen3SubTitle": "जो आप सहज महसूस करते हैं, उसे साझा करें।",
+
+    "screen4Title": "अपने कार्य लिंक जोड़ें",
+    "screen4SubTitle": "वैकल्पिक, लेकिन सहयोग के लिए उपयोगी।",
+
+    "continue": "जारी रखें",
+    "finishSetup": "सेटअप पूरा करें",
+
+    "skipForNow": "अभी के लिए छोड़ें",
+
+    "searchRolesHint": "रोल्स या स्किल्स खोजें...",
+    "noRolesFound": "कोई मेल खाने वाला रोल नहीं मिला।",
+    "resultsFound": "3 परिणाम मिले",
+
+    "selectAtLeastOneOption": "कृपया कम से कम एक विकल्प चुनें।",
+
+    "addOther": "अन्य जोड़ें",
+
+    "yearsOfExperience": "अनुभव के वर्ष",
+
+    "experience1Year": "1 वर्ष",
+    "experience2Years": "2 वर्ष",
+    "experience3Years": "3 वर्ष",
+    "experience4Years": "4 वर्ष",
+
+    "addSkills": "स्किल्स जोड़ें (कम से कम 3 स्किल्स)",
+
+    "githubLink": "Github लिंक",
+    "linkedinLink": "LinkedIn लिंक",
+    "portfolioLink": "पोर्टफोलियो/वेबसाइट लिंक",
+
+    "githubLinkDetected": "GitHub लिंक मिला।",
+    "invalidLink": "हम इस लिंक को सत्यापित नहीं कर सके।",
+    "editAnytime": "आप इन्हें कभी भी संपादित कर सकते हैं।",
+
+    "camera": "कैमरा",
+    "gallery": "गैलरी",
+    "viewPhoto": "फोटो देखें",
+
+    "importFromGallery": "गैलरी से इम्पोर्ट करें",
+    "takePhoto": "फोटो लें",
+    "removeCurrentPicture": "वर्तमान फोटो हटाएं",
+
+    "removePhotoTitle": "हटाएं?",
+    "removePhotoSubTitle": "क्या आप वाकई प्रोफ़ाइल फोटो हटाना चाहते हैं?",
+
+    "delete": "हटाएं",
+    "cancel": "रद्द करें",
+
+    "invalidImage": "कृपया JPG या PNG इमेज चुनें।",
+
+    "fullName": "पूरा नाम",
+    "fullNameError": "कृपया अपना नाम दर्ज करें।",
+
+    "or": "या"
+  }
+}
