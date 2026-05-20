@@ -10,6 +10,4 @@ TextStyle textStyle_24RegularWhite() {
     height: 1.0,
   );
 }
-TextStyle textStyle_16RegularWhite() {
-  return TextStyle();
-}
+
