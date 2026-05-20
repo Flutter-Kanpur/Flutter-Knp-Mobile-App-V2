@@ -1,0 +1,123 @@
+{
+  "auth": {
+    "signInTitle": "Let's you in",
+    "signInSubTitle": "Be part of a community that learns and builds together.",
+
+    "signUpTitle": "Create your account",
+    "signUpSubTitle": "Join Flutter Kanpur and be part of the community.",
+
+    "username": "Username",
+    "emailAddress": "Email Address",
+    "emailOrUsername": "Email Address/Username",
+
+    "password": "Password",
+    "createPassword": "Create Password",
+    "confirmPassword": "Confirm Password",
+
+    "continueWithGoogle": "Continue with Google",
+    "signInWithEmail": "Sign in with Email",
+
+    "createAccount": "Create Account",
+    "createAccountButton": "Create account",
+
+    "login": "Login",
+    "logIn": "Log in",
+
+    "alreadyHaveAccount": "Already have an account?",
+    "dontHaveAccount": "New here?",
+
+    "loginNow": "Log in",
+    "createAccountNow": "Create an account",
+
+    "forgotPassword": "Forgot Password?",
+
+    "retry": "Retry",
+    "loading": "Loading...",
+
+    "emailVerifiedTitle": "Email verified",
+    "emailVerifiedSubTitle": "Your emila address is successfully verified.",
+
+    "verificationFailedTitle": "Failed",
+    "verificationFailedSubTitle": "Something went wrong. Please try again."
+  },
+
+  "intro": {
+    "screen1Title": "Discover what's happening",
+    "screen1SubTitle": "Stay updated with meetups, workshops, and challenges happening in the Flutter Kanpur community.",
+
+    "screen2Title": "Learn and build together",
+    "screen2SubTitle": "Join events, explore teams, and learn through real-world discussions and hands-on sessions.",
+
+    "screen3Title": "Be part of the community",
+    "screen3SubTitle": "Connect with developers and designers, contribute to projects, and grow together.",
+
+    "skip": "Skip",
+    "next": "Next",
+    "getStarted": "Get Started"
+  },
+
+  "onboarding": {
+    "screen1Title": "Let's set up your profile",
+    "screen1SubTitle": "Start with the basics.",
+
+    "screen2Title": "What best describes you?",
+    "screen2SubTitle": "Choose one or more.",
+
+    "screen3Title": "Your skills & experience",
+    "screen3SubTitle": "Share what you're comfortable with.",
+
+    "screen4Title": "Add your work links",
+    "screen4SubTitle": "Optional, but helpful for collaboration.",
+
+    "continue": "Continue",
+    "finishSetup": "Finish Setup",
+
+    "skipForNow": "Skip for now",
+
+    "searchRolesHint": "Search roles or skills...",
+    "noRolesFound": "No matching roles found.",
+    "resultsFound": "3 results found",
+
+    "selectAtLeastOneOption": "Please select at least one option.",
+
+    "addOther": "Add other",
+
+    "yearsOfExperience": "Years of experience",
+
+    "experience1Year": "1 year",
+    "experience2Years": "2 years",
+    "experience3Years": "3 years",
+    "experience4Years": "4 years",
+
+    "addSkills": "Add Skills (Minimum 3 skills)",
+
+    "githubLink": "Github Link",
+    "linkedinLink": "LinkedIn link",
+    "portfolioLink": "Portfolio/Website link",
+
+    "githubLinkDetected": "GitHub link detected.",
+    "invalidLink": "We couldn't verify this link.",
+    "editAnytime": "You can edit these anytime.",
+
+    "camera": "Camera",
+    "gallery": "Gallery",
+    "viewPhoto": "View photo",
+
+    "importFromGallery": "Import from gallery",
+    "takePhoto": "Take photo",
+    "removeCurrentPicture": "Remove current picture",
+
+    "removePhotoTitle": "Remove?",
+    "removePhotoSubTitle": "Are you sure want to remove the profile photo?",
+
+    "delete": "Delete",
+    "cancel": "Cancel",
+
+    "invalidImage": "Please select a JPG or PNG image.",
+
+    "fullName": "Full name",
+    "fullNameError": "Please enter your name.",
+
+    "or": "OR"
+  }
+}
