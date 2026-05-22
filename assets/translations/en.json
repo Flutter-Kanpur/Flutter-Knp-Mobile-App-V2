@@ -41,7 +41,7 @@
     "verificationFailedSubTitle": "Something went wrong. Please try again."
   },
 
-  "intro": {
+  "authLanding": {
     "screen1Title": "Discover what's happening",
     "screen1SubTitle": "Stay updated with meetups, workshops, and challenges happening in the Flutter Kanpur community.",
 
