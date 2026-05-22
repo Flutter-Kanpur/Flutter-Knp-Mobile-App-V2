@@ -41,7 +41,7 @@
     "verificationFailedSubTitle": "कुछ गलत हो गया। कृपया पुनः प्रयास करें।"
   },
 
-  "intro": {
+  "authLanding": {
     "screen1Title": "जानें क्या हो रहा है",
     "screen1SubTitle": "Flutter Kanpur समुदाय में होने वाले मीटअप, वर्कशॉप और चुनौतियों से अपडेट रहें।",
 

@@ -1,29 +1,29 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_knp_mobile_app_v2/app/app.dart';
 import 'package:flutter_knp_mobile_app_v2/app/environments/env.dart';
-import 'package:flutter_knp_mobile_app_v2/core/database/presentation/supabase_health_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await EasyLocalization.ensureInitialized();
+
   await dotenv.load(fileName: '.env');
+
   await Supabase.initialize(url: Env.supabaseUrl, anonKey: Env.supabaseAnonKey);
-  runApp(const ProviderScope(child: MyApp()));
-}
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [Locale('en'), Locale('hi')],
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Kanpur App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
-        useMaterial3: true,
-      ),
-      home: const SupabaseHealthScreen(),
-    );
-  }
+      path: 'assets/translations',
+
+      fallbackLocale: const Locale('en'),
+
+      child: const ProviderScope(child: FlutterKanpurApp()),
+    ),
+  );
 }
