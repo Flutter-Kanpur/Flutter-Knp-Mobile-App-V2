@@ -5,6 +5,8 @@
 
     "signUpTitle": "Create your account",
     "signUpSubTitle": "Join Flutter Kanpur and be part of the community.",
+    "welcomeBack": "Welcome back",
+    "welcomeBackSubTitle": "Log in to continue where you left off.",
 
     "username": "Username",
     "emailAddress": "Email Address",
@@ -35,10 +37,16 @@
     "loading": "Loading...",
 
     "emailVerifiedTitle": "Email verified",
-    "emailVerifiedSubTitle": "Your emila address is successfully verified.",
+    "emailVerifiedSubTitle": "Your email address is successfully verified.",
 
     "verificationFailedTitle": "Failed",
-    "verificationFailedSubTitle": "Something went wrong. Please try again."
+    "verificationFailedSubTitle": "Something went wrong. Please try again.",
+
+    "usernameRequired": "Please enter username",
+    "emailRequired": "Please enter email",
+    "passwordRequired": "Please enter password",
+    "confirmPasswordRequired": "Please confirm password",
+    "passwordsDoNotMatch": "Passwords do not match"
   },
 
   "authLanding": {

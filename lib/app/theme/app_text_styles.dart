@@ -50,3 +50,32 @@ TextStyle textStyle_14MediumGreyHintStyle() {
     height: 1.0,
   );
 }
+TextStyle textStyle_16RegularBlack() {
+  return TextStyle(
+    fontFamily: 'ProductSans',
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w400,
+    color: const Color(0xFF161616),
+    height: 1.0,
+  );
+}
+TextStyle textStyle_18MediumBlack() {
+  return TextStyle(
+      fontFamily: 'ProductSans',
+      fontSize: 18.sp,
+      fontWeight: FontWeight.w600,
+      color: const Color(0xFF161616),
+      height: 1.0,
+      letterSpacing: 0.55
+  );
+}
+TextStyle textStyle_14RegularBlack() {
+  return TextStyle(
+    fontFamily: 'ProductSans',
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    color: const Color(0xFF000000),
+    height: 1.0,
+  );
+}
+
