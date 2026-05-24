@@ -1,4 +1,7 @@
 class AppAssets {
   static const cameraIcon = 'assets/icons/camera.svg';
-  // static const dashIcon = 'assets/logos/dash.svg';
+   static const dashIcon = 'assets/icons/dash_icon.png';
+   static const googleIcon = 'assets/icons/google_icon.svg';
+   static const greenTickIcon = 'assets/icons/green_tick.svg';
+   static const successIcon = 'assets/icons/success_icon.svg';
 }
