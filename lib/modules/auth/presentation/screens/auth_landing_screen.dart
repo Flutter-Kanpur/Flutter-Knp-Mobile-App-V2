@@ -107,7 +107,7 @@ class _AuthLandingScreenState extends State<AuthLandingScreen> {
 
   Widget _buildPage(AuthLandingScreenData pageData) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 20.sp),
+      padding: EdgeInsets.symmetric(horizontal: 20.sp),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -121,7 +121,7 @@ class _AuthLandingScreenState extends State<AuthLandingScreen> {
           16.verticalSpace,
 
           Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 5.sp),
+            padding: EdgeInsets.symmetric(horizontal: 5.sp),
             child: Text(
               pageData.description,
               textAlign: TextAlign.center,
@@ -143,13 +143,11 @@ class _AuthLandingScreenState extends State<AuthLandingScreen> {
       children: List.generate(
         pages.length,
         (index) => Container(
-          margin:  EdgeInsets.symmetric(horizontal: 2.sp),
+          margin: EdgeInsets.symmetric(horizontal: 2.sp),
           width: _currentPage == index ? 32.w : 8.w,
           height: 8,
           decoration: BoxDecoration(
-            color: _currentPage == index
-                ? Colors.black
-                : Color(0XFFD9D9D9),
+            color: _currentPage == index ? Colors.black : Color(0XFFD9D9D9),
             borderRadius: BorderRadius.circular(4.r),
           ),
         ),

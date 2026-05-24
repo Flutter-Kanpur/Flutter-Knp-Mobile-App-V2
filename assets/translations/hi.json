@@ -5,6 +5,11 @@
 
     "signUpTitle": "अपना अकाउंट बनाएं",
     "signUpSubTitle": "Flutter Kanpur से जुड़ें और समुदाय का हिस्सा बनें।",
+    "welcomeBack": "वापसी पर स्वागत है",
+    "welcomeBackSubTitle": "जहाँ आपने छोड़ा था, वहीं से जारी रखने के लिए लॉग इन करें।",
+
+    "welcomeBack": "वापसी पर स्वागत है",
+    "welcomeBackSubTitle": "जहाँ आपने छोड़ा था, वहीं से जारी रखने के लिए लॉग इन करें।",
 
     "username": "यूज़रनेम",
     "emailAddress": "ईमेल पता",
@@ -38,7 +43,13 @@
     "emailVerifiedSubTitle": "आपका ईमेल पता सफलतापूर्वक सत्यापित हो गया है।",
 
     "verificationFailedTitle": "असफल",
-    "verificationFailedSubTitle": "कुछ गलत हो गया। कृपया पुनः प्रयास करें।"
+    "verificationFailedSubTitle": "कुछ गलत हो गया। कृपया पुनः प्रयास करें।",
+
+    "usernameRequired": "कृपया यूज़रनेम दर्ज करें",
+    "emailRequired": "कृपया ईमेल दर्ज करें",
+    "passwordRequired": "कृपया पासवर्ड दर्ज करें",
+    "confirmPasswordRequired": "कृपया पासवर्ड की पुष्टि करें",
+    "passwordsDoNotMatch": "पासवर्ड मेल नहीं खाते"
   },
 
   "authLanding": {
