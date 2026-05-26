@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_knp_mobile_app_v2/shared/v2/fk_card.dart';
-import 'package:flutter_knp_mobile_app_v2/shared/v2/fk_header.dart';
-import 'package:flutter_knp_mobile_app_v2/shared/v2/fk_screen.dart';
-import 'package:flutter_knp_mobile_app_v2/shared/v2/fk_status_chip.dart';
+import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_card.dart';
+import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_header.dart';
+import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_screen.dart';
+import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_status_chip.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_knp_mobile_app_v2/utils/assets_path.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/application/community_provider.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/widgets/community_post_card.dart';
-import 'package:flutter_knp_mobile_app_v2/shared/v2/fk_card.dart';
-import 'package:flutter_knp_mobile_app_v2/shared/v2/fk_header.dart';
-import 'package:flutter_knp_mobile_app_v2/shared/v2/fk_screen.dart';
-import 'package:flutter_knp_mobile_app_v2/shared/v2/fk_section_title.dart';
-import 'package:flutter_knp_mobile_app_v2/shared/v2/fk_status_chip.dart';
+import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_card.dart';
+import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_header.dart';
+import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_screen.dart';
+import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_section_title.dart';
+import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_status_chip.dart';
 import 'package:flutter_knp_mobile_app_v2/utils/colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 class CommunityScreen extends ConsumerWidget {
@@ -26,6 +28,15 @@ class CommunityScreen extends ConsumerWidget {
           trailing: IconButton.filled(
             onPressed: () {},
             icon: const Icon(Icons.add_rounded),
+          ),
+        ),
+        const SizedBox(height: 20),
+        GestureDetector(
+          onTap: () => context.go('/community/qna'),
+          child: SvgPicture.asset(
+            AssetsPath.communityTopContainer,
+            width: double.infinity,
+            fit: BoxFit.fitWidth,
           ),
         ),
         const SizedBox(height: 20),
@@ -50,7 +61,43 @@ class CommunityScreen extends ConsumerWidget {
             ),
           ],
         ),
-        const SizedBox(height: 18),
+        const SizedBox(height: 24),
+        const FkSectionTitle(title: 'Contribute to Flutter Kanpur'),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: _ContributeCard(
+                label: 'Open to all',
+                title: 'Upload Projects',
+                body:
+                    'Share useful projects, app ideas, templates, and learning resources with the community.',
+                onTap: () => context.go('/community/projects'),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                children: [
+                  _ContributeCard(
+                    label: 'Write for us',
+                    body: 'Publish Flutter, Dart, UI, and backend learnings.',
+                    onTap: () => context.go('/blogs'),
+                    compact: true,
+                  ),
+                  const SizedBox(height: 12),
+                  _ContributeCard(
+                    label: 'Get involved',
+                    body: 'Join as contributor after auth/profile is ready.',
+                    onTap: () => context.go('/profile'),
+                    compact: true,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 24),
         GridView.count(
           crossAxisCount: 2,
           shrinkWrap: true,
@@ -103,7 +150,83 @@ class CommunityScreen extends ConsumerWidget {
             ],
           ),
         ),
+        const SizedBox(height: 20),
+        Text(
+          'Built for builders',
+          style: Theme.of(context).textTheme.displaySmall?.copyWith(
+            color: AppColors.lightGrayText,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+        const SizedBox(height: 10),
+        const Text('Crafted by Flutter Kanpur community.'),
       ],
+    );
+  }
+}
+
+class _ContributeCard extends StatelessWidget {
+  const _ContributeCard({
+    required this.label,
+    required this.body,
+    required this.onTap,
+    this.title,
+    this.compact = false,
+  });
+
+  final String label;
+  final String? title;
+  final String body;
+  final VoidCallback onTap;
+  final bool compact;
+
+  @override
+  Widget build(BuildContext context) {
+    return FkCard(
+      onTap: onTap,
+      padding: const EdgeInsets.all(14),
+      child: SizedBox(
+        height: compact ? 88 : 204,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+              decoration: BoxDecoration(
+                color: AppColors.selectedNavBarIconColor,
+                borderRadius: BorderRadius.circular(999),
+              ),
+              child: Text(
+                label,
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+            if (title != null) ...[
+              const SizedBox(height: 12),
+              Text(
+                title!,
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+              ),
+            ],
+            const SizedBox(height: 10),
+            Expanded(
+              child: Text(
+                body,
+                maxLines: compact ? 2 : 5,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: AppColors.subtitleTextDarkGrey,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

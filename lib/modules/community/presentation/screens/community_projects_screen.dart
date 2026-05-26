@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/application/community_provider.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/widgets/community_project_card.dart';
-import 'package:flutter_knp_mobile_app_v2/shared/v2/fk_header.dart';
-import 'package:flutter_knp_mobile_app_v2/shared/v2/fk_screen.dart';
+import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_header.dart';
+import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CommunityProjectsScreen extends ConsumerWidget {

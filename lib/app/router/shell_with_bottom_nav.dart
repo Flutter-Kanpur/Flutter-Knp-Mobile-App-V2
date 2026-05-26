@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../shared/v2/fk_app_background.dart';
+import '../../common_widgets/gradiant_background.dart';
+import '../../utils/assets_path.dart';
 import '../../utils/colors.dart';
 import '../../utils/text_styles.dart';
 
@@ -25,12 +27,24 @@ class ShellWithBottomNav extends StatelessWidget {
   }
 
   BottomNavigationBarItem _navItem({
-    required IconData icon,
+    required String asset,
     required String label,
   }) {
     return BottomNavigationBarItem(
-      icon: Icon(icon, color: AppColors.unselectedNavBarIconColor),
-      activeIcon: Icon(icon, color: AppColors.selectedNavBarIconColor),
+      icon: SvgPicture.asset(
+        asset,
+        colorFilter: const ColorFilter.mode(
+          AppColors.unselectedNavBarIconColor,
+          BlendMode.srcIn,
+        ),
+      ),
+      activeIcon: SvgPicture.asset(
+        asset,
+        colorFilter: const ColorFilter.mode(
+          AppColors.selectedNavBarIconColor,
+          BlendMode.srcIn,
+        ),
+      ),
       label: label,
     );
   }
@@ -41,7 +55,7 @@ class ShellWithBottomNav extends StatelessWidget {
     final currentIndex = _selectedIndexForPath(path);
     final isKeyboardVisible = MediaQuery.of(context).viewInsets.bottom > 0;
 
-    return FkAppBackground(
+    return GradientBackground(
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: navigationShell,
@@ -55,7 +69,6 @@ class ShellWithBottomNav extends StatelessWidget {
                 ),
                 child: BottomNavigationBar(
                   backgroundColor: AppColors.navBarBackgroundColorV2,
-                  elevation: 0,
                   currentIndex: currentIndex,
                   onTap: (index) => navigationShell.goBranch(index),
                   type: BottomNavigationBarType.fixed,
@@ -64,11 +77,11 @@ class ShellWithBottomNav extends StatelessWidget {
                   unselectedLabelStyle: textStyle_12MediumGrey(),
                   selectedLabelStyle: textStyle_12MediumGrey(),
                   items: [
-                    _navItem(icon: Icons.home_rounded, label: 'Home'),
-                    _navItem(icon: Icons.groups_rounded, label: 'Community'),
-                    _navItem(icon: Icons.event_rounded, label: 'Events'),
-                    _navItem(icon: Icons.article_rounded, label: 'Blogs'),
-                    _navItem(icon: Icons.person_rounded, label: 'Profile'),
+                    _navItem(asset: AssetsPath.home, label: 'Home'),
+                    _navItem(asset: AssetsPath.community, label: 'Community'),
+                    _navItem(asset: AssetsPath.explore, label: 'Explore'),
+                    _navItem(asset: AssetsPath.explore, label: 'Blogs'),
+                    _navItem(asset: AssetsPath.profile, label: 'Profile'),
                   ],
                 ),
               ),
