@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_knp_mobile_app_v2/app/router/route_names.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_result_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/utils/colors.dart';
 import 'package:go_router/go_router.dart';
@@ -15,7 +16,7 @@ class ProjectSubmittedScreen extends StatelessWidget {
       icon: Icons.check_rounded,
       color: AppColors.primary,
       buttonLabel: 'View my projects',
-      onPressed: () => context.go('/community/projects'),
+      onPressed: () => context.go(RouteNames.communityProjects),
     );
   }
 }
@@ -31,7 +32,7 @@ class CommunityNetworkErrorScreen extends StatelessWidget {
       icon: Icons.wifi_tethering_error_rounded,
       color: AppColors.errorColor,
       buttonLabel: 'Try again',
-      onPressed: () => context.go('/community/ask-question'),
+      onPressed: () => context.go(RouteNames.communityAskQuestion),
     );
   }
 }

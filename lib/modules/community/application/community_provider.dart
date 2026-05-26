@@ -3,7 +3,7 @@ import 'package:flutter_knp_mobile_app_v2/modules/community/data/repositories/co
 import 'package:flutter_knp_mobile_app_v2/modules/community/domain/community_models.dart';
 
 final communityRepositoryProvider = Provider<CommunityRepository>((ref) {
-  return const CommunityRepository();
+  return CommunityRepository();
 });
 
 final communityDashboardProvider = Provider<CommunityDashboardState>((ref) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_knp_mobile_app_v2/app/router/route_names.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/application/community_provider.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/widgets/community_project_card.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_back_button.dart';
@@ -23,7 +24,7 @@ class CommunityProjectsScreen extends ConsumerWidget {
         ),
         const SizedBox(height: 18),
         ElevatedButton(
-          onPressed: () => context.go('/community/upload-project'),
+          onPressed: () => context.go(RouteNames.communityUploadProject),
           child: const Text('Upload project'),
         ),
         const SizedBox(height: 14),

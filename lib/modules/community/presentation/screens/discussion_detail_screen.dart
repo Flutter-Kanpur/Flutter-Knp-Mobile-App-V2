@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_knp_mobile_app_v2/app/router/route_names.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_primary_button.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_status_chip.dart';
@@ -19,11 +20,14 @@ class DiscussionDetailScreen extends ConsumerWidget {
     return FkScreen(
       padding: const EdgeInsets.fromLTRB(22, 12, 22, 96),
       children: [
-        _TopBar(title: 'Discussion', onBack: () => context.go('/community')),
+        _TopBar(
+          title: 'Discussion',
+          onBack: () => context.go(RouteNames.communityDiscussions),
+        ),
         const SizedBox(height: 28),
         FkPrimaryButton(
           label: 'Start a new discussion',
-          onPressed: () => context.go('/community/ask-question'),
+          onPressed: () => context.go(RouteNames.communityAskQuestion),
         ),
         const SizedBox(height: 20),
         Text(

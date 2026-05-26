@@ -91,7 +91,7 @@ class CommunityPostCard extends StatelessWidget {
     return switch (type) {
       CommunityPostType.announcement => 'Update',
       CommunityPostType.discussion => 'Discuss',
-      CommunityPostType.question => 'QnA',
+      CommunityPostType.question => 'Question',
       CommunityPostType.project => 'Project',
     };
   }

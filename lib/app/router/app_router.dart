@@ -8,11 +8,10 @@ import 'package:flutter_knp_mobile_app_v2/modules/auth/presentation/screens/spla
 import 'package:flutter_knp_mobile_app_v2/modules/blogs/presentation/screens/blogs_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/ask_question_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/community_result_screens.dart';
-import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/community_feed_screen.dart';
+import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/community_discussions_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/community_guidelines_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/community_members_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/community_projects_screen.dart';
-import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/community_qna_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/community_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/discussion_detail_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/upload_project_form_screen.dart';
@@ -50,52 +49,49 @@ final GoRouter appRouter = GoRouter(
               builder: (context, state) => const CommunityScreen(),
               routes: [
                 GoRoute(
-                  path: 'feed',
-                  builder: (context, state) => const CommunityFeedScreen(),
+                  path: RouteNames.communityDiscussionsSegment,
+                  builder: (context, state) =>
+                      const CommunityDiscussionsScreen(),
                 ),
                 GoRoute(
-                  path: 'discussion',
+                  path: RouteNames.communityDiscussionDetailSegment,
                   builder: (context, state) => const DiscussionDetailScreen(),
                 ),
                 GoRoute(
-                  path: 'ask-question',
+                  path: RouteNames.communityAskQuestionSegment,
                   builder: (context, state) => const AskQuestionScreen(),
                 ),
                 GoRoute(
-                  path: 'members',
+                  path: RouteNames.communityMembersSegment,
                   builder: (context, state) => const CommunityMembersScreen(),
                 ),
                 GoRoute(
-                  path: 'qna',
-                  builder: (context, state) => const CommunityQnaScreen(),
-                ),
-                GoRoute(
-                  path: 'projects',
+                  path: RouteNames.communityProjectsSegment,
                   builder: (context, state) => const CommunityProjectsScreen(),
                 ),
                 GoRoute(
-                  path: 'guidelines',
+                  path: RouteNames.communityGuidelinesSegment,
                   builder: (context, state) =>
                       const CommunityGuidelinesScreen(),
                 ),
                 GoRoute(
-                  path: 'upload-project',
+                  path: RouteNames.communityUploadProjectSegment,
                   builder: (context, state) =>
                       const UploadProjectLandingScreen(),
                   routes: [
                     GoRoute(
-                      path: 'form',
+                      path: RouteNames.communityUploadProjectFormSegment,
                       builder: (context, state) =>
                           const UploadProjectFormScreen(),
                     ),
                   ],
                 ),
                 GoRoute(
-                  path: 'project-submitted',
+                  path: RouteNames.communityProjectSubmittedSegment,
                   builder: (context, state) => const ProjectSubmittedScreen(),
                 ),
                 GoRoute(
-                  path: 'network-error',
+                  path: RouteNames.communityNetworkErrorSegment,
                   builder: (context, state) =>
                       const CommunityNetworkErrorScreen(),
                 ),

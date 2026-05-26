@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_knp_mobile_app_v2/app/router/route_names.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_file_upload_box.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_primary_button.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_screen.dart';
@@ -41,7 +42,7 @@ class _UploadProjectFormScreenState
       children: [
         _TopBar(
           title: 'Upload project',
-          onBack: () => context.go('/community/upload-project'),
+          onBack: () => context.go(RouteNames.communityUploadProject),
         ),
         const SizedBox(height: 26),
         FkTextField(
@@ -97,7 +98,9 @@ class _UploadProjectFormScreenState
                 );
             if (!context.mounted) return;
             context.go(
-              ok ? '/community/project-submitted' : '/community/network-error',
+              ok
+                  ? RouteNames.communityProjectSubmitted
+                  : RouteNames.communityNetworkError,
             );
           },
         ),
