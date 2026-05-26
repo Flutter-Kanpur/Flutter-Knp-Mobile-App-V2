@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../shared/v2/fk_app_background.dart';
 import '../../utils/colors.dart';
 import '../../utils/text_styles.dart';
-import '../../common_widgets/gradiant_background.dart';
 
 /// Persistent shell that shows the bottom nav bar on home, community, events, and profile tabs.
 class ShellWithBottomNav extends StatelessWidget {
@@ -41,7 +41,7 @@ class ShellWithBottomNav extends StatelessWidget {
     final currentIndex = _selectedIndexForPath(path);
     final isKeyboardVisible = MediaQuery.of(context).viewInsets.bottom > 0;
 
-    return GradientBackground(
+    return FkAppBackground(
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: navigationShell,
@@ -55,6 +55,7 @@ class ShellWithBottomNav extends StatelessWidget {
                 ),
                 child: BottomNavigationBar(
                   backgroundColor: AppColors.navBarBackgroundColorV2,
+                  elevation: 0,
                   currentIndex: currentIndex,
                   onTap: (index) => navigationShell.goBranch(index),
                   type: BottomNavigationBarType.fixed,
