@@ -54,9 +54,10 @@ TextStyle textStyle_18() {
 
 TextStyle textStyle_20Bold() {
   return GoogleFonts.encodeSans(
-      color: const Color(0xFFB6F0FF),
-      fontSize: 20.sp,
-      fontWeight: FontWeight.bold);
+    color: const Color(0xFFB6F0FF),
+    fontSize: 20.sp,
+    fontWeight: FontWeight.bold,
+  );
 }
 
 TextStyle textStyle_25Bold() {
@@ -192,9 +193,10 @@ TextStyle textStyle_18SemiBold() {
 
 TextStyle textStyle_16Bold() {
   return GoogleFonts.encodeSans(
-      color: const Color(0xFFB6F0FF),
-      fontSize: 16.sp,
-      fontWeight: FontWeight.bold);
+    color: const Color(0xFFB6F0FF),
+    fontSize: 16.sp,
+    fontWeight: FontWeight.bold,
+  );
 }
 
 TextStyle textStyle_20() {
@@ -206,15 +208,13 @@ TextStyle textStyle_20() {
 
 TextStyle textStyle_20SemiBold() {
   return GoogleFonts.encodeSans(
-      fontSize: 20.sp,
-      fontWeight: FontWeight.w600,
-      foreground: Paint()
-        ..shader = const LinearGradient(
-          colors: [
-            Color(0xFFFFFFFF),
-            Color(0xFF7AFFFF),
-          ],
-        ).createShader(const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0)));
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w600,
+    foreground: Paint()
+      ..shader = const LinearGradient(
+        colors: [Color(0xFFFFFFFF), Color(0xFF7AFFFF)],
+      ).createShader(const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0)),
+  );
 }
 
 TextStyle textStyle_16RegularGrey() {
@@ -309,20 +309,23 @@ TextStyle textStyle_14LightBlack() {
 
 TextStyle textStyle_18BoldBlack() {
   return TextStyle(
-      fontFamily: 'ProductSans',
-      fontSize: 18.sp,
-      fontWeight: FontWeight.bold,
-      color: const Color(0xFF000000),
-      height: 1.3,);
+    fontFamily: 'ProductSans',
+    fontSize: 18.sp,
+    fontWeight: FontWeight.bold,
+    color: const Color(0xFF000000),
+    height: 1.3,
+  );
 }
+
 TextStyle textStyle_24BoldBlack() {
   return TextStyle(
-      fontFamily: 'ProductSans',
-      fontSize: 24.sp,
-      fontWeight: FontWeight.bold,
-      color: const Color(0xFF000000),
-      height: 1.0,
-      letterSpacing: 1.0);
+    fontFamily: 'ProductSans',
+    fontSize: 24.sp,
+    fontWeight: FontWeight.bold,
+    color: const Color(0xFF000000),
+    height: 1.0,
+    letterSpacing: 1.0,
+  );
 }
 
 TextStyle textStyle_16RegularBlack() {
@@ -372,7 +375,7 @@ TextStyle textStyle_18MediumBlack() {
     fontWeight: FontWeight.w600,
     color: const Color(0xFF161616),
     height: 1.0,
-    letterSpacing: 0.55
+    letterSpacing: 0.55,
   );
 }
 
@@ -446,7 +449,6 @@ TextStyle textStyle_36semiBoldWhite() {
   );
 }
 
-
 // Revamp styles
 TextStyle textStyle_24BlackBold() {
   return TextStyle(
@@ -507,6 +509,7 @@ TextStyle textStyle_18BlackRegular() {
     height: 1.0,
   );
 }
+
 TextStyle textStyle_20BlackMedium() {
   return TextStyle(
     fontFamily: 'ProductSans',
@@ -516,17 +519,18 @@ TextStyle textStyle_20BlackMedium() {
     height: 1.0,
   );
 }
+
 TextStyle textStyle_18BlackMedium() {
-return TextStyle(
-fontFamily: 'ProductSans',
-fontSize: 18.sp,
-fontWeight: FontWeight.w500,
-color: const Color(0xFF000000),
-height: 1.0,
-);
+  return TextStyle(
+    fontFamily: 'ProductSans',
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w500,
+    color: const Color(0xFF000000),
+    height: 1.0,
+  );
 }
 
-TextStyle textStyle_HintText() {
+TextStyle textStyleHintText() {
   return TextStyle(
     fontFamily: 'ProductSans',
     fontSize: 16.sp,
@@ -545,5 +549,3 @@ TextStyle textStyle_14FooterText() {
     height: 1.0,
   );
 }
-
-

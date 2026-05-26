@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../common_widgets/gradiant_background.dart';
 import '../../utils/assets_path.dart';
 import '../../utils/colors.dart';
 import '../../utils/text_styles.dart';
-import '../../common_widgets/gradiant_background.dart';
 
 /// Persistent shell that shows the bottom nav bar on home, community, events, and profile tabs.
 class ShellWithBottomNav extends StatelessWidget {
@@ -21,7 +21,8 @@ class ShellWithBottomNav extends StatelessWidget {
   static int _selectedIndexForPath(String path) {
     if (path.startsWith('/community')) return 1;
     if (path.startsWith('/events')) return 2;
-    if (path.startsWith('/profile')) return 3;
+    if (path.startsWith('/blogs')) return 3;
+    if (path.startsWith('/profile')) return 4;
     return 0; // /home or default
   }
 

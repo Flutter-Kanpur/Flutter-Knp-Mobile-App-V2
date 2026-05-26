@@ -16,14 +16,16 @@ Future<void> main() async {
   await Supabase.initialize(url: Env.supabaseUrl, anonKey: Env.supabaseAnonKey);
 
   runApp(
-    EasyLocalization(
-      supportedLocales: const [Locale('en'), Locale('hi')],
+    ProviderScope(
+      child: EasyLocalization(
+        supportedLocales: const [Locale('en'), Locale('hi')],
 
-      path: 'assets/translations',
+        path: 'assets/translations',
 
-      fallbackLocale: const Locale('en'),
+        fallbackLocale: const Locale('en'),
 
-      child: const ProviderScope(child: FlutterKanpurApp()),
+        child: const FlutterKanpurApp(),
+      ),
     ),
   );
 }
