@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../utils/assets_path.dart';
 import '../../utils/colors.dart';
 import '../../utils/text_styles.dart';
 import '../../common_widgets/gradiant_background.dart';
@@ -21,29 +19,18 @@ class ShellWithBottomNav extends StatelessWidget {
   static int _selectedIndexForPath(String path) {
     if (path.startsWith('/community')) return 1;
     if (path.startsWith('/events')) return 2;
-    if (path.startsWith('/profile')) return 3;
+    if (path.startsWith('/blogs')) return 3;
+    if (path.startsWith('/profile')) return 4;
     return 0; // /home or default
   }
 
   BottomNavigationBarItem _navItem({
-    required String asset,
+    required IconData icon,
     required String label,
   }) {
     return BottomNavigationBarItem(
-      icon: SvgPicture.asset(
-        asset,
-        colorFilter: const ColorFilter.mode(
-          AppColors.unselectedNavBarIconColor,
-          BlendMode.srcIn,
-        ),
-      ),
-      activeIcon: SvgPicture.asset(
-        asset,
-        colorFilter: const ColorFilter.mode(
-          AppColors.selectedNavBarIconColor,
-          BlendMode.srcIn,
-        ),
-      ),
+      icon: Icon(icon, color: AppColors.unselectedNavBarIconColor),
+      activeIcon: Icon(icon, color: AppColors.selectedNavBarIconColor),
       label: label,
     );
   }
@@ -76,11 +63,11 @@ class ShellWithBottomNav extends StatelessWidget {
                   unselectedLabelStyle: textStyle_12MediumGrey(),
                   selectedLabelStyle: textStyle_12MediumGrey(),
                   items: [
-                    _navItem(asset: AssetsPath.home, label: 'Home'),
-                    _navItem(asset: AssetsPath.community, label: 'Community'),
-                    _navItem(asset: AssetsPath.explore, label: 'Explore'),
-                    _navItem(asset: AssetsPath.explore, label: 'Blogs'),
-                    _navItem(asset: AssetsPath.profile, label: 'Profile'),
+                    _navItem(icon: Icons.home_rounded, label: 'Home'),
+                    _navItem(icon: Icons.groups_rounded, label: 'Community'),
+                    _navItem(icon: Icons.event_rounded, label: 'Events'),
+                    _navItem(icon: Icons.article_rounded, label: 'Blogs'),
+                    _navItem(icon: Icons.person_rounded, label: 'Profile'),
                   ],
                 ),
               ),
