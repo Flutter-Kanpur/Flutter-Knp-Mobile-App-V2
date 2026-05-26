@@ -5,15 +5,17 @@ import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_status_chip.dart';
 import 'package:flutter_knp_mobile_app_v2/utils/colors.dart';
 
 class CommunityPostCard extends StatelessWidget {
-  const CommunityPostCard({super.key, required this.post});
+  const CommunityPostCard({super.key, required this.post, this.onTap});
 
   final CommunityPost post;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
     return FkCard(
+      onTap: onTap,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

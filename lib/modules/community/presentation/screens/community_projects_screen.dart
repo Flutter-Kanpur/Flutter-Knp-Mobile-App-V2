@@ -5,6 +5,7 @@ import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_back_button.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_header.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class CommunityProjectsScreen extends ConsumerWidget {
   const CommunityProjectsScreen({super.key});
@@ -21,6 +22,11 @@ class CommunityProjectsScreen extends ConsumerWidget {
           leading: FkBackButton(),
         ),
         const SizedBox(height: 18),
+        ElevatedButton(
+          onPressed: () => context.go('/community/upload-project'),
+          child: const Text('Upload project'),
+        ),
+        const SizedBox(height: 14),
         for (final project in projects) CommunityProjectCard(project: project),
       ],
     );

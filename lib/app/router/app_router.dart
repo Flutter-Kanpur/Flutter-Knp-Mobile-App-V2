@@ -6,12 +6,17 @@ import 'package:flutter_knp_mobile_app_v2/modules/auth/presentation/screens/sign
 import 'package:flutter_knp_mobile_app_v2/modules/auth/presentation/screens/sign_up_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/auth/presentation/screens/splash_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/blogs/presentation/screens/blogs_screen.dart';
+import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/ask_question_screen.dart';
+import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/community_result_screens.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/community_feed_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/community_guidelines_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/community_members_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/community_projects_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/community_qna_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/community_screen.dart';
+import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/discussion_detail_screen.dart';
+import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/upload_project_form_screen.dart';
+import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/upload_project_landing_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/events/presentation/screens/events_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/home/presentation/screens/home_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/profile/presentation/screens/profile_screen.dart';
@@ -49,6 +54,14 @@ final GoRouter appRouter = GoRouter(
                   builder: (context, state) => const CommunityFeedScreen(),
                 ),
                 GoRoute(
+                  path: 'discussion',
+                  builder: (context, state) => const DiscussionDetailScreen(),
+                ),
+                GoRoute(
+                  path: 'ask-question',
+                  builder: (context, state) => const AskQuestionScreen(),
+                ),
+                GoRoute(
                   path: 'members',
                   builder: (context, state) => const CommunityMembersScreen(),
                 ),
@@ -64,6 +77,27 @@ final GoRouter appRouter = GoRouter(
                   path: 'guidelines',
                   builder: (context, state) =>
                       const CommunityGuidelinesScreen(),
+                ),
+                GoRoute(
+                  path: 'upload-project',
+                  builder: (context, state) =>
+                      const UploadProjectLandingScreen(),
+                  routes: [
+                    GoRoute(
+                      path: 'form',
+                      builder: (context, state) =>
+                          const UploadProjectFormScreen(),
+                    ),
+                  ],
+                ),
+                GoRoute(
+                  path: 'project-submitted',
+                  builder: (context, state) => const ProjectSubmittedScreen(),
+                ),
+                GoRoute(
+                  path: 'network-error',
+                  builder: (context, state) =>
+                      const CommunityNetworkErrorScreen(),
                 ),
               ],
             ),

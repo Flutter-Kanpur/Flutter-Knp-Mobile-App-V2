@@ -56,16 +56,68 @@ class CommunityProject {
 
 class CommunityQuestion {
   const CommunityQuestion({
+    required this.id,
     required this.title,
+    required this.body,
     required this.tag,
     required this.answerCount,
     required this.status,
+    required this.authorName,
+    required this.createdLabel,
   });
 
+  final String id;
   final String title;
+  final String body;
   final String tag;
   final int answerCount;
   final String status;
+  final String authorName;
+  final String createdLabel;
+}
+
+class CommunityReply {
+  const CommunityReply({
+    required this.authorName,
+    required this.createdLabel,
+    required this.body,
+    required this.likeCount,
+    required this.replyCount,
+  });
+
+  final String authorName;
+  final String createdLabel;
+  final String body;
+  final int likeCount;
+  final int replyCount;
+}
+
+class CommunityProjectSubmission {
+  const CommunityProjectSubmission({
+    required this.name,
+    required this.description,
+    required this.techStack,
+    required this.links,
+  });
+
+  final String name;
+  final String description;
+  final List<String> techStack;
+  final List<String> links;
+}
+
+class CommunityQuestionDraft {
+  const CommunityQuestionDraft({
+    required this.title,
+    required this.details,
+    required this.category,
+    required this.tags,
+  });
+
+  final String title;
+  final String details;
+  final String category;
+  final List<String> tags;
 }
 
 class CommunityDashboardState {
@@ -83,6 +135,8 @@ class CommunityDashboardState {
 
   int get memberCount => members.length;
   int get postCount => posts.length;
+  int get contributionCount => projects.length + posts.length;
+  int get eventsHostedCount => 25;
   int get activeProjectCount =>
       projects.where((project) => project.status == 'Active').length;
 }

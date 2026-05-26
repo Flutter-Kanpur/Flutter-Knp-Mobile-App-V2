@@ -75,7 +75,7 @@ class CommunityScreen extends ConsumerWidget {
                 title: 'Upload Projects',
                 body:
                     'Share useful projects, app ideas, templates, and learning resources with the community.',
-                onTap: () => context.go('/community/projects'),
+                onTap: () => context.go('/community/upload-project'),
               ),
             ),
             const SizedBox(width: 12),
@@ -138,7 +138,10 @@ class CommunityScreen extends ConsumerWidget {
           onActionTap: () => context.go('/community/feed'),
         ),
         for (final post in community.posts.take(2))
-          CommunityPostCard(post: post),
+          CommunityPostCard(
+            post: post,
+            onTap: () => context.go('/community/discussion'),
+          ),
         FkCard(
           onTap: () => context.go('/community/guidelines'),
           child: const Row(

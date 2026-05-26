@@ -5,6 +5,7 @@ import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_back_button.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_header.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class CommunityFeedScreen extends ConsumerWidget {
   const CommunityFeedScreen({super.key});
@@ -22,7 +23,11 @@ class CommunityFeedScreen extends ConsumerWidget {
           leading: FkBackButton(),
         ),
         const SizedBox(height: 18),
-        for (final post in posts) CommunityPostCard(post: post),
+        for (final post in posts)
+          CommunityPostCard(
+            post: post,
+            onTap: () => context.go('/community/discussion'),
+          ),
       ],
     );
   }

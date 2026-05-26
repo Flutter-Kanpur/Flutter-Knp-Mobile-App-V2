@@ -1,5 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_knp_mobile_app_v2/modules/community/data/repositories/community_repository.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/domain/community_models.dart';
+
+final communityRepositoryProvider = Provider<CommunityRepository>((ref) {
+  return const CommunityRepository();
+});
 
 final communityDashboardProvider = Provider<CommunityDashboardState>((ref) {
   return const CommunityDashboardState(
@@ -81,17 +86,82 @@ final communityDashboardProvider = Provider<CommunityDashboardState>((ref) {
     ],
     questions: [
       CommunityQuestion(
+        id: 'state-management',
         title: 'How do we cache home feed sections?',
+        body:
+            'I am building a medium-scale Flutter app and deciding how to cache home sections without overcomplicating the state layer.',
         tag: 'performance',
         answerCount: 2,
         status: 'Open',
+        authorName: 'Angelica Singh',
+        createdLabel: '6h ago',
       ),
       CommunityQuestion(
+        id: 'tags-model',
         title: 'Should QnA and feed share tags?',
+        body:
+            'Should blogs, QnA, resources, and posts use one normalized tags system or separate tables?',
         tag: 'database',
         answerCount: 1,
         status: 'Open',
+        authorName: 'John doe',
+        createdLabel: 'Feb 21, 2026',
       ),
     ],
   );
 });
+
+final communityRepliesProvider = Provider<List<CommunityReply>>((ref) {
+  return const [
+    CommunityReply(
+      authorName: 'Angelica Singh',
+      createdLabel: '2h ago',
+      body:
+          'AI is taking the joy out of doing simple tasks, killing the planet in the process and we are the ones to blame for it. We project such an image of these tools like an image/video generation tool is going to give me a better quality of life.',
+      likeCount: 45,
+      replyCount: 7,
+    ),
+    CommunityReply(
+      authorName: 'John doe',
+      createdLabel: 'Feb 21, 2026',
+      body:
+          "Interesting take on the design process. Mockups are a reflection of thinking through a design brief. That's investing time, not wasting it.",
+      likeCount: 14500,
+      replyCount: 7,
+    ),
+    CommunityReply(
+      authorName: 'John doe',
+      createdLabel: 'Feb 21, 2026',
+      body:
+          "Interesting take on the design process. Mockups are a reflection of thinking through a design brief. That's investing time, not wasting it.",
+      likeCount: 14500,
+      replyCount: 7,
+    ),
+  ];
+});
+
+class CommunityActionController extends AsyncNotifier<void> {
+  @override
+  Future<void> build() async {}
+
+  Future<bool> submitQuestion(CommunityQuestionDraft draft) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+      () => ref.read(communityRepositoryProvider).submitQuestion(draft),
+    );
+    return !state.hasError;
+  }
+
+  Future<bool> submitProject(CommunityProjectSubmission submission) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+      () => ref.read(communityRepositoryProvider).submitProject(submission),
+    );
+    return !state.hasError;
+  }
+}
+
+final communityActionControllerProvider =
+    AsyncNotifierProvider<CommunityActionController, void>(
+      CommunityActionController.new,
+    );
