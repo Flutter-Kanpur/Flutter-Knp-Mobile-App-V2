@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/community/application/community_provider.dart';
+import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_back_button.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_card.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_header.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/fk_screen.dart';
@@ -19,6 +20,7 @@ class CommunityQnaScreen extends ConsumerWidget {
           title: 'QnA',
           subtitle:
               'Questions, answers, accepted answer, tags, and moderation.',
+          leading: FkBackButton(),
         ),
         const SizedBox(height: 18),
         for (final question in questions)

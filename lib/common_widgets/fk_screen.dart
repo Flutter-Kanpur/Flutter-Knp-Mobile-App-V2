@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_knp_mobile_app_v2/common_widgets/gradiant_background.dart';
 
 class FkScreen extends StatelessWidget {
   const FkScreen({
@@ -13,10 +12,8 @@ class FkScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GradientBackground(
-      child: SafeArea(
-        child: ListView(padding: padding, children: children),
-      ),
+    return SafeArea(
+      child: ListView(padding: padding, children: children),
     );
   }
 }

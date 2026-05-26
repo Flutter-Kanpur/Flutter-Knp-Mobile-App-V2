@@ -33,33 +33,36 @@ class CommunityScreen extends ConsumerWidget {
         const SizedBox(height: 20),
         GestureDetector(
           onTap: () => context.go('/community/qna'),
-          child: SvgPicture.asset(
-            AssetsPath.communityTopContainer,
+          child: SizedBox(
+            height: 200,
             width: double.infinity,
-            fit: BoxFit.fitWidth,
+            child: SvgPicture.asset(
+              AssetsPath.communityTopContainer,
+              fit: BoxFit.contain,
+              alignment: Alignment.topCenter,
+            ),
           ),
         ),
         const SizedBox(height: 20),
-        Row(
-          children: [
-            Expanded(
-              child: _StatCard(
-                label: 'Members',
-                value: '${community.memberCount}',
-              ),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: _StatCard(label: 'Posts', value: '${community.postCount}'),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: _StatCard(
+        const FkSectionTitle(title: 'Flutter Kanpur Stats'),
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+          decoration: BoxDecoration(
+            color: AppColors.communityGuidelinesContainerBackground,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _StatItem(label: 'Members', value: '${community.memberCount}'),
+              _StatItem(label: 'Posts', value: '${community.postCount}'),
+              _StatItem(
                 label: 'Projects',
                 value: '${community.activeProjectCount}',
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         const SizedBox(height: 24),
         const FkSectionTitle(title: 'Contribute to Flutter Kanpur'),
@@ -98,6 +101,7 @@ class CommunityScreen extends ConsumerWidget {
           ],
         ),
         const SizedBox(height: 24),
+        const FkSectionTitle(title: 'Community Workspace'),
         GridView.count(
           crossAxisCount: 2,
           shrinkWrap: true,
@@ -231,29 +235,37 @@ class _ContributeCard extends StatelessWidget {
   }
 }
 
-class _StatCard extends StatelessWidget {
-  const _StatCard({required this.label, required this.value});
+class _StatItem extends StatelessWidget {
+  const _StatItem({required this.label, required this.value});
 
   final String label;
   final String value;
 
   @override
   Widget build(BuildContext context) {
-    return FkCard(
-      margin: EdgeInsets.zero,
-      padding: const EdgeInsets.all(12),
+    return Flexible(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            value,
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(
-              fontWeight: FontWeight.w900,
-              color: AppColors.primary,
+          FittedBox(
+            child: Text(
+              value,
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
-          const SizedBox(height: 4),
-          Text(label, maxLines: 1, overflow: TextOverflow.ellipsis),
+          const SizedBox(height: 6),
+          Text(
+            label,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+              color: AppColors.subtitleTextDarkGrey,
+            ),
+          ),
         ],
       ),
     );
