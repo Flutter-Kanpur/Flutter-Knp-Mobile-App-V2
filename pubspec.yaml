@@ -46,9 +46,13 @@ dependencies:
   google_fonts: ^7.1.0
   google_sign_in: ^7.2.0
   image_picker: ^1.2.2
+  carousel_slider: ^5.1.2
+  new_version_plus: ^0.1.1
   file_picker: ^11.0.2
   go_router: ^17.2.3
   connectivity_plus: ^7.1.1
+  equatable: ^2.0.5
+  firebase_remote_config: ^5.1.0
 
 dev_dependencies:
   flutter_test:

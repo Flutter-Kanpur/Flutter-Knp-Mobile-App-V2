@@ -1,29 +1,26 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_knp_mobile_app_v2/app/app.dart';
-import 'package:flutter_knp_mobile_app_v2/app/environments/env.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'modules/home/presentation/screens/home_screen.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await ScreenUtil.ensureScreenSize();
+  runApp(const MyApp());
+}
 
-  await EasyLocalization.ensureInitialized();
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-  await dotenv.load(fileName: '.env');
-
-  await Supabase.initialize(url: Env.supabaseUrl, anonKey: Env.supabaseAnonKey);
-
-  runApp(
-    EasyLocalization(
-      supportedLocales: const [Locale('en'), Locale('hi')],
-
-      path: 'assets/translations',
-
-      fallbackLocale: const Locale('en'),
-
-      child: const ProviderScope(child: FlutterKanpurApp()),
-    ),
-  );
+  @override
+  Widget build(BuildContext context) {
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (_, child) {
+        return MaterialApp(debugShowCheckedModeBanner: false, home: child);
+      },
+      child: const HomeScreenV2(),
+    );
+  }
 }
