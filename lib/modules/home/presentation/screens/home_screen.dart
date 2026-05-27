@@ -250,6 +250,10 @@ class _NavItem extends StatelessWidget {
             width: 24.sp,
             height: 24.sp,
             fit: BoxFit.contain,
+            colorFilter: ColorFilter.mode(
+              color!,
+              BlendMode.srcIn,
+            ),
             placeholderBuilder: (context) => const CircularProgressIndicator(),
           ),
           SizedBox(height: 6.h),
