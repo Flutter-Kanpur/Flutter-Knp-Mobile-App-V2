@@ -18,7 +18,6 @@ class AssetsPath {
   static const String eventsIcon = 'assets/icons/events.svg';
   static const String exploreImage = 'assets/explore.svg';
 
-
   //// NEW Revamp Assets
   static const String home = 'assets/icons/home_icon.svg';
   static const String community = 'assets/icons/community_icon.svg';
@@ -31,30 +30,46 @@ class AssetsPath {
   static const String contributorApproved = 'assets/contributorSuccess.png';
   static const String contribute1 = 'assets/contribute1.svg';
   static const String uploadIcon = 'assets/icons/upload_icon.svg';
-  static const String projectLandingDescription = 'assets/project_landing_description.svg';
+  static const String projectLandingDescription =
+      'assets/project_landing_description.svg';
   static const String tickIcon = 'assets/icons/tick.svg';
+  static const String communityTopContainer =
+      'assets/community_top_container.svg';
+  static const String announcementsCardBackground =
+      'assets/announcements_card_bg.svg';
+  static const String askQuestionContainerBackground =
+      'assets/ask_question_container_background.svg';
 
   // Profile screen icons
-  static const String profileManageProfile = 'assets/profile/manage_profile.svg';
-  static const String profileLoginSecurity = 'assets/profile/login_security.svg';
+  static const String profileManageProfile =
+      'assets/profile/manage_profile.svg';
+  static const String profileLoginSecurity =
+      'assets/profile/login_security.svg';
   static const String profileNotifications = 'assets/profile/notifications.svg';
   static const String profileMyEvents = 'assets/profile/my_events.svg';
   static const String profileMyContests = 'assets/profile/my_contests.svg';
   static const String profileProblemOfDay = 'assets/profile/problem_of_day.svg';
-  static const String profileMyContributions = 'assets/profile/my_contributions.svg';
-  static const String profileJoinAsContributor = 'assets/profile/join_as_contributor.svg';
-  static const String profileCommunityGuidelines = 'assets/profile/community_guidelines.svg';
+  static const String profileMyContributions =
+      'assets/profile/my_contributions.svg';
+  static const String profileJoinAsContributor =
+      'assets/profile/join_as_contributor.svg';
+  static const String profileCommunityGuidelines =
+      'assets/profile/community_guidelines.svg';
   static const String profileYourBadges = 'assets/profile/your_badges.svg';
   static const String profileYourRank = 'assets/profile/your_rank.svg';
   static const String profileLeaderboard = 'assets/profile/leaderboard.svg';
   static const String profileHelpCenter = 'assets/profile/help_center.svg';
-  static const String profileContactCommunity = 'assets/profile/contact_community.svg';
+  static const String profileContactCommunity =
+      'assets/profile/contact_community.svg';
   static const String profileReportIssue = 'assets/profile/report_issue.svg';
-  static const String profileAboutFlutterKanpur = 'assets/profile/about_flutter_kanpur.svg';
-  static const String profilePrivacyPolicy = 'assets/profile/privacy_policy.svg';
+  static const String profileAboutFlutterKanpur =
+      'assets/profile/about_flutter_kanpur.svg';
+  static const String profilePrivacyPolicy =
+      'assets/profile/privacy_policy.svg';
   static const String profileTermsOfUse = 'assets/profile/term_of_use.svg';
   static const String profileLogout = 'assets/profile/logout.svg';
-  static const String profileDeleteAccount = 'assets/profile/delete_account.svg';
+  static const String profileDeleteAccount =
+      'assets/profile/delete_account.svg';
   static const String onboardingSuccess = 'assets/icons/sucess.svg';
   static const String importIcon = 'assets/icons/import_icon.svg';
   static const String cameraIcon = 'assets/icons/camera.svg';
