@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/gradiant_background.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/search_bar.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/home/presentation/widgets/home_app_bar_v2.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/home/presentation/widgets/home_announcement_carousel_v2.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/home/presentation/widgets/home_filter_tabs_v2.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/home/presentation/widgets/event_card_component.dart';
+import 'package:flutter_knp_mobile_app_v2/utils/assets_path.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeScreenV2 extends StatefulWidget {
   const HomeScreenV2({super.key});
@@ -19,35 +22,32 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
   late int _selectedFilterIndex = 1;
   late int _selectedFiltersCount = 0;
 
-  final List<Map<String, String?>> _announcements = [
-    {
-      'title': 'Design Challenge 2026',
-      'body':
-          'Join us for an exciting design challenge! Create Stunning UI/UX design and win amazing prize!',
-      'btn_text': 'View Details',
-      'btn_url': '',
-      'background_image': null,
-    },
-    {
-      'title': 'Flutter Workshop',
-      'body':
-          'Learn advanced Flutter patterns and best practices from industry experts.',
-      'btn_text': 'Register Now',
-      'btn_url': '',
-      'background_image': null,
-    },
-    {
-      'title': 'Hackathon 2026',
-      'body':
-          'Build innovative solutions and compete with other developers for exciting prizes.',
-      'btn_text': 'Sign Up',
-      'btn_url': '',
-      'background_image': null,
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final announcements = [
+      {
+        'title': 'home.announcements.first.title'.tr(),
+        'body': 'home.announcements.first.body'.tr(),
+        'btn_text': 'home.announcements.first.button'.tr(),
+        'btn_url': '',
+        'background_image': null,
+      },
+      {
+        'title': 'home.announcements.second.title'.tr(),
+        'body': 'home.announcements.second.body'.tr(),
+        'btn_text': 'home.announcements.second.button'.tr(),
+        'btn_url': '',
+        'background_image': null,
+      },
+      {
+        'title': 'home.announcements.third.title'.tr(),
+        'body': 'home.announcements.third.body'.tr(),
+        'btn_text': 'home.announcements.third.button'.tr(),
+        'btn_url': '',
+        'background_image': null,
+      },
+    ];
+
     return GradientBackground(
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -60,13 +60,13 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
                 const HomeAppBarV2(),
                 CommonSearchBar(
                   readOnly: true,
-                  hintText: 'Search Events',
+                  hintText: 'home.searchHint'.tr(),
                   onTap: () {
                     // Handle search navigation
                   },
                 ),
                 HomeAnnouncementCarouselV2(
-                  announcements: _announcements,
+                  announcements: announcements,
                   currentPage: _currentAnnouncementPage,
                   onPageChanged: (page) {
                     setState(() {
@@ -85,8 +85,10 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
                   onFiltersTap: () {
                     // Handle filters bottom sheet
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Filters bottom sheet will open here'),
+                      SnackBar(
+                        content: Text(
+                          'home.filtersBottomSheetPlaceholder'.tr(),
+                        ),
                       ),
                     );
                   },
@@ -98,7 +100,7 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "What's new",
+                        'home.whatsNew'.tr(),
                         style: TextStyle(
                           fontSize: 18.sp,
                           fontWeight: FontWeight.w600,
@@ -112,7 +114,7 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
                         child: Row(
                           children: [
                             Text(
-                              "See all",
+                              'home.seeAll'.tr(),
                               style: TextStyle(
                                 fontSize: 16.sp,
                                 fontWeight: FontWeight.w500,
@@ -137,15 +139,14 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
                     children: [
                       // First Event Card
                       EventCardComponent(
-                        svgIconPath: 'assets/launch_event.svg',
-                        status: 'Upcoming',
+                        assetPath: AssetsPath.launcheventpng,
+                        status: 'home.events.upcoming'.tr(),
                         statusColor: const Color(0xFF10B981),
-                        organization: 'Flutter Kanpur',
-                        title: 'Launch Event',
-                        description:
-                            'Join us on an insightful session with industry speakers discussing new trends and practices in tech ecosystem.',
-                        dateTime: 'Sun, 7 Apr • 4:00 PM • Kanpur',
-                        buttonText: 'Join live  ->',
+                        organization: 'home.events.organization'.tr(),
+                        title: 'home.events.first.title'.tr(),
+                        description: 'home.events.first.description'.tr(),
+                        dateTime: 'home.events.first.dateTime'.tr(),
+                        buttonText: 'home.events.button'.tr(),
                         onButtonPressed: () {},
                         showEyeIcon: true,
                         onEyeIconPressed: () {},
@@ -153,15 +154,14 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
                       16.verticalSpace,
                       // Second Event Card
                       EventCardComponent(
-                        svgIconPath: 'assets/flutter_kanpur_card.svg',
-                        status: 'Upcoming',
+                        assetPath: AssetsPath.fkcard,
+                        status: 'home.events.upcoming'.tr(),
                         statusColor: const Color(0xFF10B981),
-                        organization: 'Flutter Kanpur',
-                        title: 'From Figma to Flutter: Practical Workflow',
-                        description:
-                            'This session focuses on building the Flutter applications that scale in real-world scenario...see more',
-                        dateTime: 'Sun, 7 Apr • 4:00 PM • Kanpur',
-                        buttonText: 'Join live  ->',
+                        organization: 'home.events.organization'.tr(),
+                        title: 'home.events.second.title'.tr(),
+                        description: 'home.events.second.description'.tr(),
+                        dateTime: 'home.events.second.dateTime'.tr(),
+                        buttonText: 'home.events.button'.tr(),
                         onButtonPressed: () {},
                         showEyeIcon: true,
                         onEyeIconPressed: () {},
@@ -173,6 +173,95 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
             ),
           ),
         ),
+
+        bottomNavigationBar: SafeArea(
+          top: false,
+          child: Container(
+            padding: EdgeInsets.symmetric(vertical: 7.h),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Optional top divider/padding
+                SizedBox(height: 3.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    _NavItem(
+                      assetPath: AssetsPath.home,
+                      label: 'home.bottomNav.home'.tr(),
+                      active: true,
+                      onTap: () {},
+                    ),
+                    _NavItem(
+                      assetPath: AssetsPath.community,
+                      label: 'home.bottomNav.community'.tr(),
+                      active: false,
+                      onTap: () {
+                        //navigate to community_screen
+                        // Navigator.push(context, MaterialPageRoute(builder: (context) => CommunityScreen()));
+                      },
+                    ),
+                    _NavItem(
+                      assetPath: AssetsPath.explore,
+                      label: 'home.bottomNav.explore'.tr(),
+                      active: false,
+                      onTap: () {},
+                    ),
+                    _NavItem(
+                      assetPath: AssetsPath.profile,
+                      label: 'home.bottomNav.profile'.tr(),
+                      active: false,
+                      onTap: () {},
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _NavItem extends StatelessWidget {
+  const _NavItem({
+    required this.assetPath,
+    required this.label,
+    required this.active,
+    required this.onTap,
+  });
+
+  final String assetPath;
+  final String label;
+  final bool active;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final color = active ? const Color(0xFF2563EB) : Colors.grey[500];
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SvgPicture.asset(
+            assetPath,
+            width: 24.sp,
+            height: 24.sp,
+            fit: BoxFit.contain,
+            placeholderBuilder: (context) => const CircularProgressIndicator(),
+          ),
+          SizedBox(height: 6.h),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 12.sp,
+              fontWeight: FontWeight.w500,
+              color: color,
+            ),
+          ),
+        ],
       ),
     );
   }

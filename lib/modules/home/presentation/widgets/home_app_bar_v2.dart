@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_knp_mobile_app_v2/app/theme/app_text_styles.dart';
+import 'package:flutter_knp_mobile_app_v2/utils/assets_path.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 /// Scrollable header for home screen (date, greeting, actions). Use as first child in scroll view.
 class HomeAppBarV2 extends StatelessWidget {
@@ -60,11 +62,10 @@ class HomeAppBarV2 extends StatelessWidget {
               ],
             ),
           ),
-          IconButton(
-            iconSize: 24.sp,
-            icon: const Icon(Icons.notifications, color: Colors.black),
-            onPressed: () {},
-          ),
+          SvgPicture.asset(
+                AssetsPath.notification,
+                fit: BoxFit.cover,
+              ),
           IconButton(
             icon: const Icon(Icons.more_vert),
             onPressed: () {},

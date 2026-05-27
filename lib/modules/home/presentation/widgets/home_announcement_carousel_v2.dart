@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_knp_mobile_app_v2/app/theme/app_text_styles.dart';
+import 'package:flutter_knp_mobile_app_v2/utils/assets_path.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -107,13 +108,13 @@ class _AnnouncementCard extends StatelessWidget {
                 bgImage,
                 fit: BoxFit.cover,
                 errorBuilder: (_, __, ___) => SvgPicture.asset(
-                  'assets/announcements_card_bg.svg',
+                  AssetsPath.announcementcardbg ,
                   fit: BoxFit.cover,
                 ),
               )
             else
               SvgPicture.asset(
-                'assets/announcements_card_bg.svg',
+                AssetsPath.announcementcardbg,
                 fit: BoxFit.cover,
               ),
 
@@ -258,14 +259,14 @@ class _AnnouncementDetailSheet extends StatelessWidget {
                           width: double.infinity,
                           fit: BoxFit.cover,
                           errorBuilder: (_, __, ___) => SvgPicture.asset(
-                            'assets/announcements_card_bg.svg',
+                            AssetsPath.announcementcardbg,
                             height: 120.h,
                             width: double.infinity,
                             fit: BoxFit.cover,
                           ),
                         )
                       : SvgPicture.asset(
-                          'assets/announcements_card_bg.svg',
+                          AssetsPath.announcementcardbg,
                           height: 120.h,
                           width: double.infinity,
                           fit: BoxFit.cover,

@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_kanpur_ui_kit/flutter_kanpur_ui_kit.dart';
 import 'package:flutter_knp_mobile_app_v2/app/theme/app_text_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class EventCardComponent extends StatelessWidget {
   const EventCardComponent({
     super.key,
-    required this.svgIconPath,
+    required this.assetPath,
     required this.status,
     required this.statusColor,
     required this.organization,
@@ -20,8 +19,8 @@ class EventCardComponent extends StatelessWidget {
     this.onEyeIconPressed,
   });
 
-  /// Path to the SVG icon asset (e.g., 'assets/launch_event.svg')
-  final String svgIconPath;
+  /// Path to the image asset (e.g., 'assets/launch_event.png')
+  final String assetPath;
 
   /// Status text (e.g., 'Upcoming', 'Ongoing')
   final String status;
@@ -64,42 +63,48 @@ class EventCardComponent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // SVG Icon with overlay status badge
+          // Hero image with overlay status badge
           Padding(
-            padding: EdgeInsets.fromLTRB(20.w, 20.h, 20.w, 12.h),
-            child: Center(
+            padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 12.h),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20.r),
               child: Stack(
+                alignment: Alignment.topLeft,
                 children: [
-                  // SVG Icon background
                   Container(
-                    width: 80.w,
-                    height: 80.h,
-                    padding: EdgeInsets.all(12.w),
                     decoration: BoxDecoration(
-                      color: Colors.grey[100],
-                      borderRadius: BorderRadius.circular(16.r),
-                    ),
-                    child: SvgPicture.asset(
-                      svgIconPath,
-                      fit: BoxFit.contain,
-                      colorFilter: const ColorFilter.mode(
-                        Colors.black,
-                        BlendMode.srcIn,
+                      borderRadius: BorderRadius.circular(20.r),
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          const Color(0xFFF7F9FF),
+                          const Color(0xFFEAF2FF),
+                        ],
                       ),
                     ),
                   ),
-                  // Status badge overlay on top-left
+                  Container(
+                    width: double.infinity,
+                    height: 180.h,
+                    //padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
+                    child: Image.asset(
+                      assetPath,
+                      fit: BoxFit.cover,
+                      alignment: Alignment.center,
+                    ),
+                  ),
                   Positioned(
-                    top: 0,
-                    left: 0,
+                    top: 10.h,
+                    left: 10.w,
                     child: Container(
                       padding: EdgeInsets.symmetric(
-                        horizontal: 10.w,
-                        vertical: 4.h,
+                        horizontal: 14.w,
+                        vertical: 7.h,
                       ),
                       decoration: BoxDecoration(
                         color: statusColor,
-                        borderRadius: BorderRadius.circular(12.r),
+                        borderRadius: BorderRadius.circular(999),
                       ),
                       child: Text(status, style: textStyle_12SemiBoldWhite()),
                     ),
@@ -108,7 +113,7 @@ class EventCardComponent extends StatelessWidget {
               ),
             ),
           ),
-          12.verticalSpace,
+         
           // Organization section
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -119,19 +124,19 @@ class EventCardComponent extends StatelessWidget {
           ),
           // Title
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Text(title, style: textStyle_18BlackMedium()),
           ),
-          12.verticalSpace,
+          10.verticalSpace,
           // Date/Time
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Text(dateTime, style: textStyle_13SemiBoldBlue()),
           ),
-          8.verticalSpace,
+          10.verticalSpace,
           // Description
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Text(
               description,
               style: textStyle_13RegularGrey(),
@@ -139,10 +144,10 @@ class EventCardComponent extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
           ),
-          20.verticalSpace,
+          18.verticalSpace,
           // Button section
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Row(
               children: [
                 Expanded(
@@ -157,14 +162,14 @@ class EventCardComponent extends StatelessWidget {
                   GestureDetector(
                     onTap: onEyeIconPressed,
                     child: Container(
-                      width: 43.w,
-                      height: 43.h,
+                      width: 44.w,
+                      height: 44.h,
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: Colors.grey[300]!,
                           width: 1.5,
                         ),
-                        borderRadius: BorderRadius.circular(40.r),
+                        borderRadius: BorderRadius.circular(999),
                       ),
                       child: Icon(
                         Icons.visibility_outlined,
@@ -177,7 +182,7 @@ class EventCardComponent extends StatelessWidget {
               ],
             ),
           ),
-          20.verticalSpace,
+          16.verticalSpace,
         ],
       ),
     );
