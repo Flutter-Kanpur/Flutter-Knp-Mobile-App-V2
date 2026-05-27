@@ -18,6 +18,8 @@ import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens
 import 'package:flutter_knp_mobile_app_v2/modules/community/presentation/screens/upload_project_landing_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/events/presentation/screens/events_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/home/presentation/screens/home_screen.dart';
+import 'package:flutter_knp_mobile_app_v2/modules/profile/presentation/screens/my_profile_screen.dart';
+// ignore: unused_import
 import 'package:flutter_knp_mobile_app_v2/modules/profile/presentation/screens/profile_screen.dart';
 import 'package:flutter_knp_mobile_app_v2/shared/screens/app_feedback_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -119,7 +121,7 @@ final GoRouter appRouter = GoRouter(
           routes: [
             GoRoute(
               path: RouteNames.profile,
-              builder: (context, state) => const ProfileScreen(),
+              builder: (context, state) => const MyProfileScreen(),
             ),
           ],
         ),
