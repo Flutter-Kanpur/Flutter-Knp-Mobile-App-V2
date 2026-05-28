@@ -173,52 +173,6 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
             ),
           ),
         ),
-
-        bottomNavigationBar: SafeArea(
-          top: false,
-          child: Container(
-            padding: EdgeInsets.symmetric(vertical: 7.h),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Optional top divider/padding
-                SizedBox(height: 3.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    _NavItem(
-                      assetPath: AssetsPath.home,
-                      label: 'home.bottomNav.home'.tr(),
-                      active: true,
-                      onTap: () {},
-                    ),
-                    _NavItem(
-                      assetPath: AssetsPath.community,
-                      label: 'home.bottomNav.community'.tr(),
-                      active: false,
-                      onTap: () {
-                        //navigate to community_screen
-                        // Navigator.push(context, MaterialPageRoute(builder: (context) => CommunityScreen()));
-                      },
-                    ),
-                    _NavItem(
-                      assetPath: AssetsPath.explore,
-                      label: 'home.bottomNav.explore'.tr(),
-                      active: false,
-                      onTap: () {},
-                    ),
-                    _NavItem(
-                      assetPath: AssetsPath.profile,
-                      label: 'home.bottomNav.profile'.tr(),
-                      active: false,
-                      onTap: () {},
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
       ),
     );
   }
