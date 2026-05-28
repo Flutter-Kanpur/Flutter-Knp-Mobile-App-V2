@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_knp_mobile_app_v2/app/theme/app_text_styles.dart';
 import 'package:flutter_knp_mobile_app_v2/utils/assets_path.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_knp_mobile_app_v2/utils/date_extensions.dart';
 
 /// Scrollable header for home screen (date, greeting, actions). Use as first child in scroll view.
 class HomeAppBarV2 extends StatelessWidget {
@@ -10,29 +12,12 @@ class HomeAppBarV2 extends StatelessWidget {
 
   String _getGreeting(BuildContext context) {
     final hour = DateTime.now().hour;
-    if (hour < 12) return 'Good Morning';
-    if (hour < 17) return 'Good Afternoon';
-    return 'Good Evening';
+    if (hour < 12) return 'greetings.morning'.tr();
+    if (hour < 17) return 'greetings.afternoon'.tr();
+    return 'greetings.evening'.tr();
   }
 
-  String _getFormattedDate() {
-    final now = DateTime.now();
-    final months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    return '${months[now.month - 1]} ${now.day}, ${now.year}';
-  }
+  String _getFormattedDate() => DateTime.now().formattedLocalizedDate();
 
   @override
   Widget build(BuildContext context) {
@@ -62,10 +47,7 @@ class HomeAppBarV2 extends StatelessWidget {
               ],
             ),
           ),
-          SvgPicture.asset(
-                AssetsPath.notification,
-                fit: BoxFit.cover,
-              ),
+          SvgPicture.asset(AssetsPath.notification, fit: BoxFit.cover),
           IconButton(
             icon: const Icon(Icons.more_vert),
             onPressed: () {},

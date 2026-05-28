@@ -12,14 +12,12 @@ class HomeAnnouncementCarouselV2 extends StatelessWidget {
     required this.announcements,
     required this.currentPage,
     required this.onPageChanged,
-    this.carouselController,
   });
 
   /// Each map has keys: title, body, btn_text, btn_url, background_image (nullable).
   final List<Map<String, String?>> announcements;
   final int currentPage;
   final ValueChanged<int> onPageChanged;
-  final CarouselSliderController? carouselController;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +29,6 @@ class HomeAnnouncementCarouselV2 extends StatelessWidget {
         children: [
           CarouselSlider.builder(
 
-            carouselController: carouselController ?? CarouselSliderController(),
             itemCount: announcements.length,
             itemBuilder: (context, index, realIndex) {
               final n = announcements.length;
@@ -50,9 +47,9 @@ class HomeAnnouncementCarouselV2 extends StatelessWidget {
               autoPlayCurve: Curves.fastOutSlowIn,
               enlargeCenterPage: false,
               onPageChanged: (index, reason) {
-              final n = announcements.length;
-              onPageChanged(((index % n) + n) % n);
-            },
+                final n = announcements.length;
+                onPageChanged(((index % n) + n) % n);
+              },
               scrollDirection: Axis.horizontal,
             ),
           ),
@@ -73,15 +70,6 @@ class _AnnouncementCard extends StatelessWidget {
   const _AnnouncementCard({required this.announcement});
 
   final Map<String, String?> announcement;
-
-  void _openDetail(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      builder: (_) => _AnnouncementDetailSheet(announcement: announcement),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +96,7 @@ class _AnnouncementCard extends StatelessWidget {
                 bgImage,
                 fit: BoxFit.cover,
                 errorBuilder: (_, __, ___) => SvgPicture.asset(
-                  AssetsPath.announcementcardbg ,
+                  AssetsPath.announcementcardbg,
                   fit: BoxFit.cover,
                 ),
               )
@@ -124,12 +112,14 @@ class _AnnouncementCard extends StatelessWidget {
                 left: 20.w,
                 bottom: 20.h,
                 child: ElevatedButton(
-                  onPressed: () => _openDetail(context),
+                  onPressed: ()  {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     foregroundColor: const Color(0xFF4F46E5),
                     padding: EdgeInsets.symmetric(
-                        horizontal: 24.w, vertical: 5.h),
+                      horizontal: 24.w,
+                      vertical: 5.h,
+                    ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.r),
                     ),
@@ -182,12 +172,14 @@ class _AnnouncementCard extends StatelessWidget {
                     8.verticalSpace,
                     if (btnText.isNotEmpty)
                       ElevatedButton(
-                        onPressed: () => _openDetail(context),
+                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
                           foregroundColor: const Color(0xFF4F46E5),
                           padding: EdgeInsets.symmetric(
-                              horizontal: 24.w, vertical: 5.h),
+                            horizontal: 24.w,
+                            vertical: 5.h,
+                          ),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.r),
                           ),
@@ -212,153 +204,8 @@ class _AnnouncementCard extends StatelessWidget {
   }
 }
 
-class _AnnouncementDetailSheet extends StatelessWidget {
-  const _AnnouncementDetailSheet({required this.announcement});
-
-  final Map<String, String?> announcement;
-
-  Future<void> _launchUrl(String url) async {
-    final uri = Uri.tryParse(url);
-    if (uri == null) return;
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final title = announcement['title'] ?? '';
-    final body = announcement['body'] ?? '';
-    final btnText = announcement['btn_text'] ?? '';
-    final btnUrl = announcement['btn_url'] ?? '';
-    final bgImage = announcement['background_image'];
-    final hasImage = bgImage != null && bgImage.isNotEmpty;
-    final hasUrl = btnUrl.isNotEmpty;
-
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(28.r)),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Banner image with drag handle overlaid on top
-          Stack(
-            children: [
-              // Full-width banner clipped to match the sheet's top corners
-              SizedBox(
-                width: double.infinity,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(28.r)),
-                  child: hasImage
-                      ? Image.network(
-                          bgImage,
-                          height: 120.h,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                          errorBuilder: (_, __, ___) => SvgPicture.asset(
-                            AssetsPath.announcementcardbg,
-                            height: 120.h,
-                            width: double.infinity,
-                            fit: BoxFit.cover,
-                          ),
-                        )
-                      : SvgPicture.asset(
-                          AssetsPath.announcementcardbg,
-                          height: 120.h,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
-                ),
-              ),
-
-              // Drag handle overlaid at the top-center of the banner
-              Positioned(
-                top: 12.h,
-                left: 0,
-                right: 0,
-                child: Center(
-                  child: Container(
-                    width: 40.w,
-                    height: 4.h,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.7),
-                      borderRadius: BorderRadius.circular(2.r),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-
-          Padding(
-            padding: EdgeInsets.fromLTRB(24.w, 20.h, 24.w, 0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: textStyle_18MediumBlack().copyWith(
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black,
-                    height: 1.3,
-                  ),
-                ),
-                const Divider(),
-                12.verticalSpace,
-                Text(
-                  body,
-                  style: textStyle_14MediumGreyHintStyle().copyWith(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.grey[600],
-                    height: 1.6,
-                  ),
-                ),
-                if (hasUrl) ...[
-                  20.verticalSpace,
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () => _launchUrl(btnUrl),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF4F46E5),
-                        foregroundColor: Colors.white,
-                        padding: EdgeInsets.symmetric(vertical: 14.h),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.r),
-                        ),
-                        elevation: 0,
-                      ),
-                      child: Text(
-                        btnText.isNotEmpty ? btnText : 'Open Link',
-                        style: textStyle_14MediumGreyHintStyle().copyWith(
-                          fontSize: 15.sp,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-                SizedBox(height: 24.h + MediaQuery.of(context).padding.bottom),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class _CarouselIndicators extends StatelessWidget {
-  const _CarouselIndicators({
-    required this.count,
-    required this.currentPage,
-  });
+  const _CarouselIndicators({required this.count, required this.currentPage});
 
   final int count;
   final int currentPage;
