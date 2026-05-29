@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/gradiant_background.dart';
 import 'package:flutter_knp_mobile_app_v2/common_widgets/search_bar.dart';
-import 'package:flutter_knp_mobile_app_v2/modules/home/presentation/widgets/home_app_bar_v2.dart';
-import 'package:flutter_knp_mobile_app_v2/modules/home/presentation/widgets/home_announcement_carousel_v2.dart';
-import 'package:flutter_knp_mobile_app_v2/modules/home/presentation/widgets/home_filter_tabs_v2.dart';
+import 'package:flutter_knp_mobile_app_v2/modules/home/presentation/widgets/home_app_bar.dart';
+import 'package:flutter_knp_mobile_app_v2/modules/home/presentation/widgets/home_announcement_carousel.dart';
+import 'package:flutter_knp_mobile_app_v2/modules/home/presentation/widgets/home_filter_tabs.dart';
 import 'package:flutter_knp_mobile_app_v2/modules/home/presentation/widgets/event_card_component.dart';
 import 'package:flutter_knp_mobile_app_v2/utils/assets_path.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomeScreenV2 extends StatefulWidget {
-  const HomeScreenV2({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<HomeScreenV2> createState() => _HomeScreenV2State();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenV2State extends State<HomeScreenV2> {
+class _HomeScreenState extends State<HomeScreen> {
   late int _currentAnnouncementPage = 0;
   late int _selectedFilterIndex = 1;
   late int _selectedFiltersCount = 0;
@@ -57,7 +57,7 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const HomeAppBarV2(),
+                const HomeAppBar(),
                 CommonSearchBar(
                   readOnly: true,
                   hintText: 'home.searchHint'.tr(),
@@ -65,7 +65,7 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
                     // Handle search navigation
                   },
                 ),
-                HomeAnnouncementCarouselV2(
+                HomeAnnouncementCarousel(
                   announcements: announcements,
                   currentPage: _currentAnnouncementPage,
                   onPageChanged: (page) {
@@ -75,7 +75,7 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
                   },
                 ),
 
-                HomeFilterTabsV2(
+                HomeFilterTabs(
                   selectedFilterIndex: _selectedFilterIndex,
                   onFilterSelected: (index) {
                     setState(() {

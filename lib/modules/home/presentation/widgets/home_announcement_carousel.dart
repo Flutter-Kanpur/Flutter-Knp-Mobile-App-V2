@@ -6,8 +6,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class HomeAnnouncementCarouselV2 extends StatelessWidget {
-  const HomeAnnouncementCarouselV2({
+class HomeAnnouncementCarousel extends StatelessWidget {
+  const HomeAnnouncementCarousel({
     super.key,
     required this.announcements,
     required this.currentPage,

@@ -7,8 +7,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:flutter_knp_mobile_app_v2/utils/date_extensions.dart';
 
 /// Scrollable header for home screen (date, greeting, actions). Use as first child in scroll view.
-class HomeAppBarV2 extends StatelessWidget {
-  const HomeAppBarV2({super.key});
+class HomeAppBar extends StatelessWidget {
+  const HomeAppBar({super.key});
 
   String _getGreeting(BuildContext context) {
     final hour = DateTime.now().hour;

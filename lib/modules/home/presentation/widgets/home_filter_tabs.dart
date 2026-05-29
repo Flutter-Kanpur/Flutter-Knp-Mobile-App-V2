@@ -6,8 +6,8 @@ import 'package:flutter_knp_mobile_app_v2/common_widgets/border_shadow_container
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_kanpur_ui_kit/flutter_kanpur_ui_kit.dart';
 
-class HomeFilterTabsV2 extends StatefulWidget {
-  const HomeFilterTabsV2({
+class HomeFilterTabs extends StatefulWidget {
+  const HomeFilterTabs({
     super.key,
     required this.selectedFilterIndex,
     required this.onFilterSelected,
@@ -23,10 +23,10 @@ class HomeFilterTabsV2 extends StatefulWidget {
   final int selectedFiltersCount;
 
   @override
-  State<HomeFilterTabsV2> createState() => _HomeFilterTabsV2State();
+  State<HomeFilterTabs> createState() => _HomeFilterTabsState();
 }
 
-class _HomeFilterTabsV2State extends State<HomeFilterTabsV2> {
+class _HomeFilterTabsState extends State<HomeFilterTabs> {
   @override
   Widget build(BuildContext context) {
     final filters = [
