@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../utils/colors.dart';
-import '../../../../../utils/text_styles.dart';
+import '../../utils/colors.dart';
+import '../../utils/text_styles.dart';
 
 /// Groups a section title and its tiles in one rounded container with dividers between items.
 class ProfileSectionBlock extends StatelessWidget {
